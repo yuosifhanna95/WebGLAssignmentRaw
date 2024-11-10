@@ -6,6 +6,7 @@ using TMPro;
 
 public class SnapToItem : MonoBehaviour
 {
+    // A class that is responsible for scrolling between product list
     public ScrollRect scrollRect;
     public RectTransform contentPanel;
     public RectTransform sampleListItem;
@@ -79,6 +80,7 @@ public class SnapToItem : MonoBehaviour
     }
     public void openKeyboard(int t)
     {
+        //open touch keyboard when mobile platform available
         typeKeyboard = t;
         string textToEdit = "";
         selectedIF = true;
@@ -105,9 +107,11 @@ public class SnapToItem : MonoBehaviour
     }
     public void EditAndConfirmProduct()
     {
+        // Edit and Confirm the changes made for product's name,description,price
         EditMode = !EditMode;
         if (EditMode)
         {
+            //change mode to edit mode
             scrollRect.horizontal = false;
             Edit_b.transform.GetChild(0).GetComponent<TMPro.TMP_Text>().text = "CONFIRM";
             int currentItem = Mathf.RoundToInt((0 - contentPanel.localPosition.x / (sampleListItem.rect.width + HLG.spacing)));
@@ -123,13 +127,14 @@ public class SnapToItem : MonoBehaviour
             DESCRIPTION_IF.text = description;
             PRICE_IF.text = price;
 
-            SelectedProduct.transform.GetChild(0).GetComponent<TMPro.TMP_Text>().gameObject.SetActive(false); //Globals.products[i].name;
-            SelectedProduct.transform.GetChild(1).GetComponent<TMPro.TMP_Text>().gameObject.SetActive(false); // Globals.products[i].description;
-            SelectedProduct.transform.GetChild(2).GetComponent<TMPro.TMP_Text>().gameObject.SetActive(false);  //Globals.products[i].price;
+            SelectedProduct.transform.GetChild(0).GetComponent<TMPro.TMP_Text>().gameObject.SetActive(false);
+            SelectedProduct.transform.GetChild(1).GetComponent<TMPro.TMP_Text>().gameObject.SetActive(false); 
+            SelectedProduct.transform.GetChild(2).GetComponent<TMPro.TMP_Text>().gameObject.SetActive(false);
 
         }
         else
         {
+            //change mode to confirm mode
             selectedIF = false;
             scrollRect.horizontal = true;
             Edit_b.transform.GetChild(0).GetComponent<TMPro.TMP_Text>().text = "EDIT";

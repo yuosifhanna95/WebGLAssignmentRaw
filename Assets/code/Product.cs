@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Product
 {
+    //class that defines a product
     public string name;
     public string description;
     public string price;

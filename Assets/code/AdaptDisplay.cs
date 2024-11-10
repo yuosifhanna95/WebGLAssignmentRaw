@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AdaptDisplay : MonoBehaviour
 {
+    //class for screen adaption mobile/desktop
     public Canvas canvas;
     // Start is called before the first frame update
     void Start()

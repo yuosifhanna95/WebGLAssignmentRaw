@@ -8,9 +8,10 @@ using TMPro;
 public class GetProducts : MonoBehaviour
 {
     // Start is called before the first frame update
+    // class for retrieving the products json response and loading them to the shelf
     private string URL = "https://homework.mocart.io/api/products";
     public RectTransform contentPanel;
-    public GameObject prefabPro;
+    public GameObject prefabPro;// prefab for the product visualization entity
     void Start()
     {
         StartCoroutine(Getproducts());
